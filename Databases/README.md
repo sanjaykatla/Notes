@@ -1,1 +1,0 @@
-This directory will contain all the learnings and information about the databases
