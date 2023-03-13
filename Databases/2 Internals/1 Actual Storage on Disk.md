@@ -50,3 +50,12 @@ more information where everything else is there
 * The index also stored as pages and cost IO to pull the entries of the index
 * The smaller the index, the more it can fit in memory and faster the search
 * Popular data structure for index is b-trees
+
+### Notes
+* Sometimes the heap can be organized around a single index
+called clustered index or Index organized table
+* Primary key is usually a clustered index unless otherwise specified
+* MySql and InnoDB always have primary key (clustered index) other indexes
+point to the primary key "value"
+* Postgres only have secondary indexes and all indexes point directly to the 
+row_id which lives in the heap
