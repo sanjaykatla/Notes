@@ -7,3 +7,10 @@
 find out you will get all column values
 
 ## Column Based
+
+* Tables are stored as columns first in disk
+* A single block io read to the table fetches multiple columns
+with all matching rows.
+* Less Io is required to get more values of a given column.
+* But working with multiple columns require more IO
+* OLAP
