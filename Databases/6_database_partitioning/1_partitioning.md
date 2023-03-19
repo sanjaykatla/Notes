@@ -29,3 +29,8 @@
 * Sharding splits big table into multiple tables across multiple database servers.
 * HP table name changes (or changes)
 * Sharding everything is same but database server changes
+
+Cons
+* Updates that moves the rows across partitions
+* Inefficient queries could scan all partitions
+* Schema changes can be challenging
