@@ -7,3 +7,9 @@
  * Great for range queries
  * ![img.png](images/b+_tree.png)
  
+## DBMS Considerations
+* Cost of leaf pointer cheap
+* One nodes fits a DBMS page
+* Can fit internal nodes easily in memory for fast traversal
+* Leaf nodes can live in data files in heap
+* Most DBMS use B+ trees
