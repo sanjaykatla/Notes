@@ -7,6 +7,13 @@
 across multiple databases with minimal delay is challenging.
 
 
+Multiple options can be used to generate unique IDs in distributed systems. The options we considered are:
+
+1. Multi-master replication 
+2. Universally unique identifier (UUID)
+3. Ticket server 
+4. Twitter snowflake approach
+
 ## Multi-Master Replication
 
 > This approach uses database auto increment feature. Instead of increasing 
