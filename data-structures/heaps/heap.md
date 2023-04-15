@@ -36,9 +36,9 @@ the binary representation of i and then adding 1 in lower order bit.
 1. Max heap
 2. Min heap
 
-For **_Heap Sort_** algorithm we make use of Max Heap.
 
-Min Heap is used in priority queue.
+    For **_Heap Sort_** algorithm we make use of Max Heap. 
+    Min Heap is used in priority queue.
 
 ### Some basic procedure and how they are used
 
@@ -55,6 +55,7 @@ array in place
 and _HEAP-MAXIMUM_ procedures, which run O(n), allow the heap data
 structure to implement priority queue.
 
+## Max-Heapify
 
     
     MAX-HEAPIFY(A, i)
@@ -71,6 +72,8 @@ structure to implement priority queue.
             exchange A[largest] with A[i]
             MAX-HEAPIFY(A, largest);
 
+Time Complexity: **O(log n)**
+
 ## Building a heap
 
 We can use the procedure MAX-HEAPIFY in a bottom up manner to convert an array 
@@ -80,11 +83,66 @@ to max heap.
         A:heap-size = A:length
         for i = A:length/2 downto 1
         MAX-HEAPIFY(A, i)  
-### Time complexity
+Time Complexity: **O(n)** ([Detailed analysis can be found here](build-max-heap-time-complexity-analysis.md))
+
+
+## Time complexity list
 
 We can compute a simple upper bound on the running time of **BUILD-MAXHEAP** as 
 follows. Each call to **MAX-HEAPIFY** costs O(log n) time,
 and **BUILDMAX-HEAP** makes O(n) such calls. Thus, 
 the running time is O(n log n). This upper bound, though correct,
 is not asymptotically tight.
+
+### Max Heap time complexities for different operations
+<table style="text-align: center">
+    <tr>
+        <th>Operation</th>
+        <th>Time Complexity</th>
+    </tr>
+    <tr>
+        <td>Find max</td>
+        <td style="font-weight: bold">O(1)</td>
+    </tr>
+    <tr>
+        <td>Delete max</td>
+        <td style="font-weight: bold">O(log n)</td>
+    </tr>
+    <tr>
+        <td>Insert</td>
+        <td style="font-weight: bold">O(log n)</td>
+    </tr>
+    <tr>
+        <td>Increase key</td>
+        <td style="font-weight: bold">O(log n)</td>
+    </tr>
+    <tr>
+        <td>Decrease key</td>
+        <td style="font-weight: bold">O(log n)</td>
+    </tr>
+    <tr>
+        <td>Find Min</td>
+        <td style="font-weight: bold">O(n)</td>
+    </tr>
+    <tr>
+        <td>Search</td>
+        <td style="font-weight: bold">O(n)</td>
+    </tr>
+    <tr>
+        <td>Delete</td>
+        <td style="font-weight: bold">O(n)</td>
+    </tr>
+    <tr>
+        <td>Max Heapify</td>
+        <td style="font-weight: bold">O(log n)</td>
+    </tr>
+    <tr>
+        <td>Build Max Heap</td>
+        <td style="font-weight: bold">O(n)</td>
+    </tr>
+    <tr>
+        <td>Heap Sort</td>
+        <td style="font-weight: bold">O(n log n)</td>
+    </tr>
+</table>
 
