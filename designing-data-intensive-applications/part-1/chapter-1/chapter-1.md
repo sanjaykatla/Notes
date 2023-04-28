@@ -19,3 +19,11 @@ categories of tools.
 Although a database and a message queue have some superficial similarity - both store
 data for some time - they have very different access pattern, which means different
 performance characteristic, hence different implementation.
+
+* There are databases used as message queues - Redis
+* There are message queues with durability guarantee - Kafka
+
+In this chapter we focus on
+1. Reliability
+2. Scalability
+3. Maintainability
