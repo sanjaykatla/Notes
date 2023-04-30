@@ -22,7 +22,13 @@ distributed cluster of machines.
 * Graph like Data Models
 
 ## Chapter 3
-* Internal storage engine and looks at how databases lay out data on disk
+    Internal storage engine and looks at how databases lay 
+    out data on disk
+* Data structures that powers your DB
+  * Hash Tables / Hash Tables
+  * SST ans LSM trees
+  * B - Trees
+  * Comparing B-Tree with LSM Tree
 
 ## Chapter 4
 * Encoding
