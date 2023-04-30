@@ -24,7 +24,6 @@ memory, on disk, or on network.
 4. On yet lower levels, hardware engineers have figured out how
 to represent bytes in terms of electrical currents, pulses of light,
 magnetic fields and more.
-5. 
 
 ### Relational Model vs Document Model
 * The Birth of NOSQL
