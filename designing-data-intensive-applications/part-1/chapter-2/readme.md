@@ -32,4 +32,10 @@ magnetic fields and more.
 * Are Document Databases repeating history?
 * Relation DB vs Document DB Today
 ### Query languages for Data
+* The declarative queries on web
+* MapReduce Querying
 ### Graph like Data Models
+* Property Graphs
+* The Cypher Query Language
+* Graph Queries in SQL
+* Triple Source and SPARQL
