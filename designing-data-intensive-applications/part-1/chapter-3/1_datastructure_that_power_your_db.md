@@ -1,16 +1,40 @@
 # Data Structure that power your DB
 
+Consider the world’s simplest database, implemented as two Bash functions:
+```agsl
+db_set () {
+    echo "$1,$2" >> database
+}
+
+db_get () {
+    grep "^$1," database | sed -e "s/^$1,//" | tail -n 1
+}
+```
+
+The underlying storage format is very simple Key-value store.
 ## Key-value Store
-* Write the key value to the file
-* Keep appending the new values or updates
+* Write the key value to the file separated by a Comma (just like CSV)
+* Keep appending the new values for updates
+* This has very very good performance for something that is
+so simple as appending to a file very fast
+* And get function is terribly bad
 * Below techniques can be used to make the retrieval fast
 
+## Index
+* In order to efficiently find the value for a particular key in the database,
+we need a different data structure
+* The general idea behind them is to keep some additional metadata on the side, which acts as a signpost
+and helps you to locate the data you want
+* An index is an additional structure that is derived from the primary data
+
 ## Hash Index
+* Very similar to dictionary type data structure.
+* And usually implemeted using hashmap
 * Keep an in-memory hash map where every key is mapped to a byte offset in the data file—the location
 at which the value can be found
 * Update the byte offset when there is a key value update
-* In fact this is what is Bitcask, the default storage
-engine in Raik.
+* In fact this is what is **Bitcask**, the default storage
+engine in **Raik**.
 
 ### We only ever append to a file—so how do we avoid eventually running out of disk space?
 * A good solution is to break the log into segments of certain
@@ -18,6 +42,7 @@ size.
 * We can perform compaction 
 * Compaction means throwing away duplicate keys in the log, and keeping only the most 
 recent update for each key.
+* Each segment now has its own in-memory hash table
 * We can also merge several segments together at the same time as performing the compaction
 * Segments are never modified after they have been written, so the merged segment is written to a new file
 * In order to find the value for a key, we first check the 
@@ -51,6 +76,14 @@ on disk, which can be loaded into memory more quickly
 * As writes are appended to the log in a strictly sequential order, 
 a common implementation choice is to have only one writer thread
 
+### Pros
+* Appending sequential which is fast
+* Concurrency and crash recovery
+
+### Cons
+* Range based queries suck
+* Map should fit in memory
+
 ## SSTables
 * SST - Sorted String Tables 
 * Small change to the segment file, that all the keys must be
@@ -72,8 +105,25 @@ very quickly
 that you can use, such as red-black trees or AVL trees [2].
 * With these data structures, you can insert keys in any
 order and read them back in sorted order
+* We can now make our storage engine work as follows:
+
+#### Mem-table
+* When a write comes in, add it to an in-memory balanced tree data structure (for example, a red-black tree). 
+This in-memory tree is sometimes called a memtable.
+* When the memtable gets bigger than some threshold—typically a 
+few megabytes—write it out to disk as an SSTable file.
+* This can be done efficiently because the tree already maintains the key-value pairs
+sorted by key. 
+* The new SSTable file becomes the most recent segment of the database
+* While the SSTable is being written out to disk, writes can continue to a new memtable instance
+
+#### Cons
 * It only suffers from one problem: if the database crashes, the most recent writes (which are in th
 e memtable but not yet written out to disk) are lost
+  * In order to avoid that problem, we can keep a separate log on disk to which every write is 
+  immediately appended, just like in the previous section. 
+  * That log is not in sorted order, but that doesn’t matter, because its only purpose is to restore the 
+  memtable after a crash
 
 ## Making an LSM-tree out of SSTables
 * The algorithm described here is essentially what is used in LevelDB [6] and RocksDB
