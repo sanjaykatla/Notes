@@ -1,4 +1,5 @@
 
+- [ ] How Database takes a snapshot without any performance issues?
 - [ ]  Learn about encoding.
    * Encoding is fascinating
    * How to encode a character
