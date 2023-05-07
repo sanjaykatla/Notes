@@ -7,6 +7,12 @@ There could be multiple reasons to go for Distributed systems
 
 
 ### Replication
+* Leader Follower Replication
+* Problems With Replication Lag
+* Multi Leader Replication
+* Leaderless Replication
+
+
 ### Partitioning
 ### Transactions
 ### The trouble with distributed systems
