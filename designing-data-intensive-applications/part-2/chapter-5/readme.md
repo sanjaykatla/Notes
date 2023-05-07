@@ -17,3 +17,5 @@
 * Use Cases for Multi Leader Replication
 * Handling Write Conflicts
 * Multi-Leader Replication Topologies
+
+## Leaderless Replication
