@@ -41,3 +41,7 @@ The quorum condition, w + r > n, allows the system to tolerate unavailable nodes
 
 
 ### Sloppy Quorums and Hinted Handoff
+
+## Handling conflicts
+
+### Last write wins (discarding concurrent writes)

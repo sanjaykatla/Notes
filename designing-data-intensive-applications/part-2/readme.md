@@ -12,7 +12,12 @@ There could be multiple reasons to go for Distributed systems
 * Multi Leader Replication
 * Leaderless Replication
 
-
 ### Partitioning
+* Partitioning and Replicaiton
+* Partitioning of Key-Value data
+* Partitioning and secondary Indexes
+* Rebalancing Partitions
+* Request Routing
+
 ### Transactions
 ### The trouble with distributed systems
