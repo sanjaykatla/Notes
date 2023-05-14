@@ -29,5 +29,13 @@ Each partition is a small database on its own.
 * Skewed Workloads and Relieving Hot Spots
 
 ### 3. Partitioning and secondary Indexes
+* By Document
+  * Local
+* By Term
+  * Global secondary indexes
 ### 4. Rebalancing Partitions
+* How not to assign partitions
+* Fixed Number of Partitions
+* Dynamic Partitioning
+* Partitioning proportionally to nodes 
 ### 5. Request Routing
