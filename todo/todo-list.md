@@ -9,6 +9,8 @@
    * How JSON is converted into bytes?
    * Why we need BSON / BISON
    * Why we need Proto and how it is efficient than normal encoding?
+- [ ]  Build and deploy gradle projects
+- [ ]  Integrate swagger with gradle project
 
 ### Completed
 - [x] Completed Item 1 will go here 
