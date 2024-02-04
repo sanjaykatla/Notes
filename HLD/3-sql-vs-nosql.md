@@ -34,4 +34,51 @@ Products
    7. sharding key will be user_id
 8. Slack
    9. Group_id
-10. 
+
+* SQL is bad for analytics
+
+## NOSQL
+
+### Key-Value store
+1. HashMap
+2. Redis - In memory
+3. Memcached - In memory
+4. DynamoDB - DB
+
+#### methods
+1. get
+2. set
+3. has(key)
+
+### Document store
+Unstructured objects
+Json Data
+1. MongoDB
+2. Firebase - DB
+3. ElasticSearch
+4. CouchDB
+
+
+### Column store
+* Suitable for aggregations query
+
+1. Cassandra
+2. BigTable
+3. HBase
+4. ScyllaDB
+
+### Graph store
+
+1. Neo4j
+2. SurrealDB
+3. AWS GraphDB
+4. Prometheus
+
+### File/Blob store
+1. AWS S3
+2. HDFS
+
+### Other
+1. VectorDB
+   2. Nearest neighbour search
+
