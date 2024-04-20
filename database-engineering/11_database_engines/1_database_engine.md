@@ -25,3 +25,5 @@ software libraries that DBMS uses to do low level storing of data on disk.
   * Stored Procedures
 * Want to write a database? Don't start from scratch use database engine.
 * Sometimes referred as storage engine, embedded databse.
+* Some DBMS gives you flexibility to choose the engine like MySql and MariaDB
+* 
