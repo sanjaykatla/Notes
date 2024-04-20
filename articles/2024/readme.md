@@ -6,3 +6,5 @@
 ### 2. ULID
 
 ### 3. Snowflake ID
+
+### 4. Wide column database vs Columnar database 
